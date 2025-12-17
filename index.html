@@ -859,6 +859,22 @@
             grid-template-columns: 1fr 1.5fr;
             gap: 4rem;
             align-items: start;
+            justify-items: center; /* center column content when only one column filled */
+        }
+
+        /* Ensure the contact box sizes consistently and looks aligned with the section.
+           When the contact-info is the only child, span both columns and center it. */
+        .contact-grid > .contact-info {
+            width: 100%;
+            max-width: 640px;
+            margin: 0; /* reset any extra margins */
+        }
+
+        .contact-grid > .contact-info:only-child {
+            grid-column: 1 / -1;
+            max-width: 900px; /* allow it to stretch more when occupying full width */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-info {
@@ -1481,31 +1497,6 @@
                         </div>
                     </div>
                      
-                </div>
-                
-                <div class="contact-form-wrapper">
-                    <h3>أرسل رسالة</h3>
-                    <form>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="name">الاسم</label>
-                                <input type="text" id="name" placeholder="أدخل اسمك">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">رقم الجوال</label>
-                                <input type="tel" id="phone" placeholder="أدخل رقم جوالك">
-                            </div>
-                            <div class="form-group full-width">
-                                <label for="subject">الموضوع</label>
-                                <input type="text" id="subject" placeholder="موضوع الرسالة">
-                            </div>
-                            <div class="form-group full-width">
-                                <label for="message">الرسالة</label>
-                                <textarea id="message" rows="5" placeholder="اكتب رسالتك هنا..."></textarea>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn-submit">إرسال الرسالة</button>
-                    </form>
                 </div>
             </div>
         </div>
